@@ -1,0 +1,90 @@
+h1, h3, h5 {
+    text-align: center;
+}
+
+/* body {
+    overflow: hidden;
+} */
+
+input[type="button"] {
+    max-width: 400px;
+}
+
+
+/* User Authorization index.html */
+#userAuth {
+    background-color: aqua;
+    padding: 30px;
+    text-align: center;
+    min-width: 300px;
+    width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#padding {
+    position: relative;
+    height: 10vh;
+}
+
+
+/* Activities page */
+    /* general */
+    .activity_panel {
+        margin: auto;
+        display: flex;
+        /* justify-content: right; */
+        flex-direction: column;
+        column-count: 2;
+        flex-wrap: wrap;
+        max-width: 400px;
+    }
+
+    .listingInput {
+        /* background-color: khaki; */
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .panel_container {
+        display: flex;
+        padding: 20px;
+    }
+
+    label {
+        order: -1;
+        text-align: left;
+    }
+
+    .sub_panel {
+        /* display: flex; */
+        /* max-width: 400px; */
+        /* justify-content: space-between; */
+        /* float: inline-end; */
+        background-color: lawngreen;
+    }
+
+
+    /* what to do page */
+    #what_to_do {
+        background-color: deeppink;
+    }
+
+
+    /* new listing page */
+    #new_listing {
+        background-color: chocolate;
+    }
+
+
+    /* lookup listing page */
+    #lookup_listing {
+        background-color: indianred;
+    }
+
+
+    /* print document page */
+    #print_documents {
+        background-color: gold;
+    }

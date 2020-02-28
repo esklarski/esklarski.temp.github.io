@@ -27,7 +27,7 @@
     <!-- new listing panel -->
         <div id="new_listing" class="panel_container">
             <div class="activity_panel">
-                <h3>create listing</h3>
+                <h3>Edit Listing:</h3>
 
                 <div id="sub_panel">
                     <div class="listingInput">
@@ -40,12 +40,12 @@
                         <label for="agentInput">Agent:</label>
                     <!-- auto inputed,  -->
                         <input id="agentInput" type="text"
-                            placeholder="demo_agent" readonly><br>
+                            placeholder="demo_agent" readonly>
                     </div>
                     <div class="listingInput">
                         <label for="clientInput">Client:</label>
                         <input id="clientInput" type="text"
-                            placeholder="happy_client"><br>
+                            placeholder="happy_client">
                     </div>
                     <div class="listingInput">
                         <label for="addressInput">Property Address:</label>
@@ -70,7 +70,8 @@
                     </div>
                     <div class="listingInput">
                         <label for="propertyDescription">Description:</label>
-                        <textarea id="propertyDescription" cols="30" rows="10" placeholder="a numbered house on a street in a city&#10;with a postal code in a country&#10;&#10;a charming buliding you might like, with amenities,&#10;rooms, and maybe a bathroom"></textarea>
+                        <textarea id="propertyDescription" cols="30" rows="10"
+                            placeholder="a house on a street in a city &#10;with a postal code in a country &#10;&#10;a charming buliding you might like, with amenities, rooms, and maybe a bathroom"></textarea>
                     </div>
                     <div class="listingInput">
                         <label for="askingPrice">Asking Price:</label>
@@ -145,10 +146,10 @@
                         <label for=""></label>
                         <input id="" type="text" placeholder="">
                     </div>
-                    <div class="listingInput">
-                        <label for=""></label>
-                        <input id="" type="text" placeholder="">
-                    </div>
+                </div>
+
+                <div id="sub_panel">
+                    <h5>Miscelany:</h5>
                     <div class="listingInput">
                         <label for=""></label>
                         <input id="" type="text" placeholder="">
@@ -170,7 +171,7 @@
                         <input id="" type="text" placeholder="">
                     </div>
                 </div>
-                    
+                <hr>
                 <input type="button" value="create listing"
                     onclick="choose_activity('what_to_do');">
             </div>

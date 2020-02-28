@@ -2,12 +2,9 @@ h1, h3, h5 {
     text-align: center;
 }
 
-/* body {
-    overflow: hidden;
-} */
-
 input[type="button"] {
     max-width: 400px;
+    height: 50px;
 }
 
 
@@ -33,7 +30,6 @@ input[type="button"] {
     .activity_panel {
         margin: auto;
         display: flex;
-        /* justify-content: right; */
         flex-direction: column;
         column-count: 2;
         flex-wrap: wrap;
@@ -41,7 +37,6 @@ input[type="button"] {
     }
 
     .listingInput {
-        /* background-color: khaki; */
         max-width: 400px;
         display: flex;
         flex-direction: column;
@@ -58,10 +53,6 @@ input[type="button"] {
     }
 
     .sub_panel {
-        /* display: flex; */
-        /* max-width: 400px; */
-        /* justify-content: space-between; */
-        /* float: inline-end; */
         background-color: lawngreen;
     }
 

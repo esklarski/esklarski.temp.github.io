@@ -1,5 +1,10 @@
 h1, h3, h5 {
     text-align: center;
+    text-decoration-line: underline;
+}
+
+hr {
+    width: 300px;
 }
 
 input[type="button"] {
@@ -27,13 +32,17 @@ input[type="button"] {
 
 /* Activities page */
     /* general */
-    .activity_panel {
+    [class*="activity_panel"] {
         margin: auto;
         display: flex;
         flex-direction: column;
         column-count: 2;
         flex-wrap: wrap;
         max-width: 400px;
+    }
+
+    [class*="sub_panel"] {
+        max-width: 200px;
     }
 
     .listingInput {
@@ -50,10 +59,7 @@ input[type="button"] {
     label {
         order: -1;
         text-align: left;
-    }
-
-    .sub_panel {
-        background-color: lawngreen;
+        font-size: 80%;
     }
 
 

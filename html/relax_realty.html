@@ -19,6 +19,7 @@
                 <h3>Choose Function:</h3>
                 <input type="button" value="create listing"
                     onclick="choose_activity('new_listing');">
+                <hr>
                 <input type="button" value="lookup listing"
                     onclick="choose_activity('lookup_listing');">
             </div>
@@ -61,7 +62,7 @@
                             placeholder="a.person@some.service">
                     </div>
                 </div>
-
+                <hr>
                 <div id="sub_panel">
                     <h5>Listing Details:</h5>
                     <div class="listingInput">
@@ -78,7 +79,7 @@
                         <input id="askingPrice" type="text" placeholder="$x,xxx,xxx.xx">
                     </div>
                 </div>
-
+                <hr>
                 <div id="sub_panel">
                     <h5>Property Summary:</h5>
                     <div class="listingInput">
@@ -120,7 +121,7 @@
                         <input id="" type="text" placeholder="2">
                     </div>
                 </div>
-
+                <hr>
                 <div id="sub_panel">
                     <h5>Additional Details:</h5>
                     <div class="listingInput">
@@ -136,41 +137,61 @@
                         <input id="landSize" type="text" placeholder="xxxx">
                     </div>
                     <div class="listingInput">
-                        <label for="basementInput">Basement?:</label>
+                        <label for="basementInput">Basement?</label>
                         <select id="basementInput">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                         </select>
                     </div>
-                    <div class="listingInput">
-                        <label for=""></label>
-                        <input id="" type="text" placeholder="">
-                    </div>
                 </div>
-
+                <hr>
                 <div id="sub_panel">
-                    <h5>Miscelany:</h5>
+                    <h5>Features:</h5>
                     <div class="listingInput">
-                        <label for=""></label>
-                        <input id="" type="text" placeholder="">
+                        <label for="interiorFeatures">Interior Features:</label>
+                        <textarea id="interiorFeatures" cols="30" rows="5"
+                            placeholder=""></textarea>
                     </div>
                     <div class="listingInput">
-                        <label for=""></label>
-                        <input id="" type="text" placeholder="">
+                        <label for="buildingFeatures">Building Features:</label>
+                        <textarea id="buildingFeatures" cols="30" rows="5"
+                            placeholder=""></textarea>
                     </div>
                     <div class="listingInput">
-                        <label for=""></label>
-                        <input id="" type="text" placeholder="">
+                        <label for="propertyFeatures">Property Features:</label>
+                        <textarea id="propertyFeatures" cols="30" rows="5"
+                            placeholder=""></textarea>
                     </div>
                     <div class="listingInput">
-                        <label for=""></label>
-                        <input id="" type="text" placeholder="">
-                    </div>
-                    <div class="listingInput">
-                        <label for=""></label>
-                        <input id="" type="text" placeholder="">
+                        <label for="neighborhoodFeatures">Neigborhood Features:</label>
+                        <textarea id="neighborhoodFeatures" cols="30" rows="5"
+                            placeholder=""></textarea>
                     </div>
                 </div>
+                <hr>
+                <div id="sub_panel">
+                    <h5>Transaction Details:</h5>
+                    <div class="listingInput">
+                        <label for="sellingPrice">Selling Price:</label>
+                        <input id="sellingPrice" type="text" placeholder="$x,xxx,xxx.xx">
+                    </div>
+                    <div class="listingInput">
+                        <label for="offerHistory">Offer History:</label>
+                        <textarea id="offerHistory" cols="30" rows="10"
+                            placeholder=""></textarea>
+                    </div>
+                    <div class="listingInput">
+                        <label for="listingNotes">Notes:</label>
+                        <textarea id="listingNotes" cols="30" rows="5"
+                            placeholder=""></textarea>
+                    </div>
+                </div>
+                <!-- <div id="sub_panel">
+                    <div class="listingInput">
+                        <label for="blah"></label>
+                        <input id="blah" type="text" placeholder="blah">
+                    </div>
+                </div> -->
                 <hr>
                 <input type="button" value="create listing"
                     onclick="choose_activity('what_to_do');">

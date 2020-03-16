@@ -19,10 +19,10 @@
             <div class="activity_panel">
                 <div id="padding"></div>
                 <h3>Choose Function:</h3>
-                <input type="button" value="create listing"
+                <input type="button" class="generalButton" value="create listing"
                     onclick="startNewListing();">
                 <hr>
-                <input type="button" value="lookup listing"
+                <input type="button" class="generalButton" value="lookup listing"
                     onclick="chooseActivity('lookup_listing');">
             </div>
         </div>
@@ -189,9 +189,9 @@
                     </div>
                 </div>
                 <hr>
-                <input type="button" value="create listing"
+                <input type="button" class="generalButton" value="create listing"
                     onclick="createNewListing();">
-                <input type="button" value="cancel"
+                <input type="button" class="generalButton" value="cancel"
                     onclick="chooseActivity('what_to_do');">
             </div>
         </div>
@@ -203,7 +203,7 @@
                 <div class="listingInput">
                     <label for="agentSearchInput">Agent name search:</label>
                     <input id="agentSearchInput" type="text" placeholder="enter agent name">
-                    <input type="button" value="seach for listings"
+                    <input type="button" class="searchButton" value="seach for listings"
                         onclick="agentSearch();">
                 </div>
                 <!-- <div class="listingInput"> -->
@@ -214,7 +214,7 @@
                 <div class="listingInput">
                     <label for="listingSearchInput">Listing number search:</label>
                     <input id="listingSearchInput" type="text" placeholder="enter listing number">
-                    <input type="button" value="search for listing"
+                    <input type="button" class="searchButton" value="search for listing"
                         onclick="numberSearch();">
                 </div>
                 <hr>
@@ -224,11 +224,11 @@
                         placeholder=""></textarea>
                 </div>
                 <hr>
-                <input type="button" value="print records"
+                <input type="button" class="generalButton" value="print records"
                     onclick="chooseActivity('print_documents');">
-                <input type="button" value="cancel/return"
+                <input type="button" class="generalButton" value="cancel/return"
                     onclick="chooseActivity('what_to_do');">
-                <input type="button" value="clear"
+                <input type="button" class="generalButton" value="clear"
                     onclick="clearSearchResults(); clearAgentSearch();">
             </div>
         </div>
@@ -237,7 +237,7 @@
         <div id="print_documents" class="panel_container">
             <div class="activity_panel">
                 <h3>Print Records</h3>
-                <input type="button" value="return"
+                <input type="button" class="generalButton" value="return"
                     onclick="chooseActivity('what_to_do');">
             </div>
         </div>

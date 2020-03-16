@@ -72,7 +72,7 @@ function clearAgentSearch() {
 // clear search results
 function clearSearchResults() {
     document.getElementById("searchResults").value = "";
-    
+
     DISPLAYEDLISTING = null;
 }
 
@@ -80,10 +80,18 @@ function clearSearchResults() {
 function displaySelect(listings) {
     var myDiv = document.getElementById("agentListingList");
 
+    if (listings.length < 2) {
+        var size = 2;
+    } else if (listings.length > 5) {
+        var size = 5;
+    } else {
+        var size = listings.length;
+    }
+
     //Create and append select list
     var selectList = document.createElement("select");
     selectList.setAttribute("id", "listingSelect");
-    selectList.setAttribute("size", listings.length);
+    selectList.setAttribute("size", size);
     myDiv.appendChild(selectList);
 
     //Create and append the options

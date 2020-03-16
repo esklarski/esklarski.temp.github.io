@@ -9,9 +9,15 @@ hr {
 
 input[type="button"] {
     max-width: 400px;
-    height: 50px;
 }
 
+.searchButton {
+    height: 25px;
+}
+
+.generalButton {
+    height: 50px;
+}
 
 /* User Authorization index.html */
 #userAuth {

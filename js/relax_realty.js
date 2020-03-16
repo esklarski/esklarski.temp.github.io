@@ -18,13 +18,16 @@ function chooseActivity(activity) {
 // system determines listing number
 function startNewListing() {
     chooseActivity('new_listing');
+
     document.getElementById("listingNum").value = MockDatabase.newListingNum();
 }
 
 // create new listing in mock database
 function createNewListing() {
     var newListing = Listing.new();
+
     MockDatabase.push(newListing);
+
     chooseActivity('what_to_do');
 }
 
@@ -60,6 +63,7 @@ function numberSearch() {
 // clear agent listing search
 function clearAgentSearch() {
     var toRemove = document.getElementById("listingSelect");
+
     if (toRemove != null) {
         document.getElementById("agentListingList").removeChild(toRemove);
     }
@@ -68,6 +72,7 @@ function clearAgentSearch() {
 // clear search results
 function clearSearchResults() {
     document.getElementById("searchResults").value = "";
+    
     DISPLAYEDLISTING = null;
 }
 

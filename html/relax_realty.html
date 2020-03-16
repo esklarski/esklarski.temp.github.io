@@ -19,7 +19,8 @@
             <div class="activity_panel">
                 <div id="padding"></div>
                 <h3>Choose Function:</h3>
-                <input type="button" value="create listing" onclick="startNewListing();">
+                <input type="button" value="create listing"
+                    onclick="startNewListing();">
                 <hr>
                 <input type="button" value="lookup listing"
                     onclick="chooseActivity('lookup_listing');">
@@ -217,13 +218,14 @@
                 <hr>
                 <div class="listingInput">
                     <label for="searchResults">Search Results:</label>
-                    <textarea id="searchResults" cols="30" rows="30"></textarea>
+                    <textarea id="searchResults" cols="30" rows="30"
+                        placeholder=""></textarea>
                 </div>
                 <hr>
                 <input type="button" value="print records"
                     onclick="chooseActivity('print_documents');">
                 <input type="button" value="cancel/return"
-                    onclick="chooseActivity('what_to_do'); clearSearchResults(); clearAgentSearch();">
+                    onclick="chooseActivity('what_to_do');">
                 <input type="button" value="clear"
                     onclick="clearSearchResults(); clearAgentSearch();">
             </div>

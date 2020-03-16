@@ -17,8 +17,8 @@ function chooseActivity(activity) {
 
 // system determines listing number
 function startNewListing() {
-    document.getElementById("listingNum").value = MockDatabase.newListingNum();
     chooseActivity('new_listing');
+    document.getElementById("listingNum").value = MockDatabase.newListingNum();
 }
 
 // create new listing in mock database
@@ -36,7 +36,7 @@ function agentSearch() {
     var listings = MockDatabase.agentNameSearch(searchName);
 
     if (listings != null) {
-        displaySelect(listings)
+        displaySelect(listings);
     }
 }
 

@@ -75,7 +75,8 @@ var listingArray = [
 class MockDatabase {
 
     static newListingNum() {
-        return listingArray.length + 1;
+        var nextListing = listingArray.length + 1;
+        return nextListing;
     }
 
     static listingNumSearch(number) {

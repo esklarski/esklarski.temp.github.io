@@ -41,11 +41,17 @@ input[type="button"] {
         max-width: 400px;
     }
 
-    [class*="sub_panel"] {
+    /* [class*="sub_panel"] {
         max-width: 200px;
-    }
+    } */
 
     .listingInput {
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #agentListingList {
         max-width: 400px;
         display: flex;
         flex-direction: column;
@@ -78,6 +84,11 @@ input[type="button"] {
     /* lookup listing page */
     #lookup_listing {
         background-color: indianred;
+    }
+
+    #searchButton {
+        max-width: 200px;
+        height: 25px;
     }
 
 

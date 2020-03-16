@@ -19,14 +19,14 @@ function chooseActivity(activity) {
 function startNewListing() {
     chooseActivity('new_listing');
 
-    document.getElementById("listingNum").value = MockDatabase.newListingNum();
+    document.getElementById("listingNum").value = MockDatabaseNewListingNum();
 }
 
 // create new listing in mock database
 function createNewListing() {
     var newListing = Listing.new();
 
-    MockDatabase.push(newListing);
+    MockDatabasePush(newListing);
 
     chooseActivity('what_to_do');
 }
@@ -36,7 +36,7 @@ function agentSearch() {
     clearAgentSearch();
 
     var searchName = document.getElementById("agentSearchInput").value;
-    var listings = MockDatabase.agentNameSearch(searchName);
+    var listings = MockDatabaseAgentNameSearch(searchName);
 
     if (listings != null) {
         displaySelect(listings);
@@ -48,7 +48,7 @@ function numberSearch() {
     clearSearchResults();
 
     var searchKey = document.getElementById("listingSearchInput").value;
-    var listing = MockDatabase.listingNumSearch(searchKey);
+    var listing = MockDatabaseListingNumSearch(searchKey);
 
     if (listing != null) {
         DISPLAYEDLISTING = listing;

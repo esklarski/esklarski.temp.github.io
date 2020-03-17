@@ -183,7 +183,7 @@
                 <input type="button" class="generalButton" value="create listing"
                     onclick="createNewListing();">
                 <input type="button" class="generalButton" value="cancel"
-                    onclick="chooseActivity('what_to_do');">
+                    onclick="cancelNewListingButton();">
             </div>
         </div>
 
@@ -191,22 +191,22 @@
         <div id="lookup_listing" class="panel_container">
             <div class="activity_panel">
                 <h3>Lookup Listings</h3>
-                <div class="listingInput">
+                <div class="searchInput">
                     <label for="agentSearchInput">Agent name search:</label>
                     <input id="agentSearchInput" type="text" placeholder="enter agent name">
                     <input type="button" class="searchButton" value="seach for listings"
                         onclick="agentSearch();">
                 </div>
-                <div id="agentListingList" onchange="selectSelect();"></div>
+                <div id="agentListingList" onchange="selectSelect();" onclick="selectSelect();"></div>
                 <hr>
-                <div class="listingInput">
+                <div class="searchInput">
                     <label for="listingSearchInput">Listing number search:</label>
                     <input id="listingSearchInput" type="text" placeholder="enter listing number">
                     <input type="button" class="searchButton" value="search for listing"
                         onclick="numberSearch();">
                 </div>
                 <hr>
-                <div class="listingInput">
+                <div class="searchInput">
                     <label for="searchResults">Search Results:</label>
                     <textarea id="searchResults" cols="30" rows="30"></textarea>
                 </div>
@@ -221,7 +221,7 @@
 
                 <!-- TODO - properly clear all fields -->
                 <input type="button" class="generalButton" value="clear"
-                    onclick="clearSearchResults(); clearAgentSearch();">
+                    onclick="clearSearchButton();">
             </div>
         </div>
 

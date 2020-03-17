@@ -49,13 +49,7 @@ input[type="button"] {
         max-width: 400px;
     }
 
-    .listingInput {
-        max-width: 400px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    #agentListingList {
+    [class*="Input"] {
         max-width: 400px;
         display: flex;
         flex-direction: column;
@@ -86,6 +80,12 @@ input[type="button"] {
     /* lookup listing page */
     #lookup_listing {
         background-color: deeppink;
+    }
+
+    #agentListingList {
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
     }
 
     /* print document page */

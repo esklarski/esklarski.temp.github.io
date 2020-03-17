@@ -74,11 +74,13 @@ var listingArray = [
 // database object to simulate query and reply
 class MockDatabase {
 
+    // send back next listing number
     static newListingNum() {
         var nextListing = listingArray.length + 1;
         return nextListing;
     }
 
+    // search listings by number, return appropriate listing
     static listingNumSearch(number) {
         var found = false;
     
@@ -97,7 +99,8 @@ class MockDatabase {
             return null;
         }
     }
-    
+
+    // search by agent name, return array of matching listings
     static agentNameSearch(name) {
         var found = false;
         var results = [];
@@ -117,6 +120,7 @@ class MockDatabase {
         }
     }
 
+    // add new listing to database array
     static push(newListing) {
         listingArray.push(newListing);
     }

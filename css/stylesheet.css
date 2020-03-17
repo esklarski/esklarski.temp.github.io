@@ -75,6 +75,7 @@ input[type="button"] {
     /* what to do page */
     #what_to_do {
         background-color: deeppink;
+        height: 90vh;
     }
 
     /* new listing page */

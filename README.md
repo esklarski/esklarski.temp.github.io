@@ -1,2 +1,2 @@
 # esklarski.temp.github.io
-CSIS 2200 group project website demo
+CSIS 2200 Tech Enthusiast's website demo

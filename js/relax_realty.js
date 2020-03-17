@@ -15,18 +15,18 @@ function chooseActivity(activity) {
     }
 }
 
-// system determines listing number
+// system determines new listing number
 function startNewListing() {
     chooseActivity('new_listing');
 
-    document.getElementById("listingNum").value = MockDatabaseNewListingNum();
+    document.getElementById("listingNum").value = MockDatabase.newListingNum();
 }
 
 // create new listing in mock database
 function createNewListing() {
     var newListing = Listing.new();
 
-    MockDatabasePush(newListing);
+    MockDatabase.push(newListing);
 
     chooseActivity('what_to_do');
 }
@@ -35,8 +35,8 @@ function createNewListing() {
 function agentSearch() {
     clearAgentSearch();
 
-    var searchName = document.getElementById("agentSearchInput").value;
-    var listings = MockDatabaseAgentNameSearch(searchName);
+    var searchKey = document.getElementById("agentSearchInput").value;
+    var listings = MockDatabase.agentNameSearch(searchKey);
 
     if (listings != null) {
         displaySelect(listings);
@@ -48,16 +48,32 @@ function numberSearch() {
     clearSearchResults();
 
     var searchKey = document.getElementById("listingSearchInput").value;
-    var listing = MockDatabaseListingNumSearch(searchKey);
+    var listing = MockDatabase.listingNumSearch(searchKey);
 
     if (listing != null) {
         DISPLAYEDLISTING = listing;
         var output = document.getElementById("searchResults");
 
-        for (var value in listing) {
-            output.value = output.value + value + ": " + listing[value] + "\n";
+        for (var key in listing) {
+            output.value = output.value + key + ": " + listing[key] + "\n";
         }
     }
+}
+
+// clear search results
+function clearSearchResults() {
+    document.getElementById("searchResults").value = "";
+
+    DISPLAYEDLISTING = null;
+}
+
+// display selected listing in search box
+function selectSelect() {
+    var selectedListing = document.getElementById("listingSelect");
+    var selected = selectedListing.options[selectedListing.selectedIndex].value;
+
+    document.getElementById("listingSearchInput").value = selected;
+    numberSearch();
 }
 
 // clear agent listing search
@@ -67,13 +83,6 @@ function clearAgentSearch() {
     if (toRemove != null) {
         document.getElementById("agentListingList").removeChild(toRemove);
     }
-}
-
-// clear search results
-function clearSearchResults() {
-    document.getElementById("searchResults").value = "";
-
-    DISPLAYEDLISTING = null;
 }
 
 // display select with agent listings
@@ -101,13 +110,4 @@ function displaySelect(listings) {
         option.text = listings[i].listingNum;
         selectList.appendChild(option);
     }
-}
-
-// display selected listing in search box
-function selectSelect() {
-    var selectedListing = document.getElementById("listingSelect");
-    var selected = selectedListing.options[selectedListing.selectedIndex].value;
-
-    document.getElementById("listingSearchInput").value = selected;
-    numberSearch();
 }

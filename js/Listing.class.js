@@ -1,37 +1,5 @@
+// example data model, should include pictures but it doesn't
 class Listing {
-    // listingNum;
-    // agent;
-    // client;
-    // address;
-    // phone;
-    // email;
-
-    // mlsNum;
-    // description;
-    // price;
-
-    // propertyType;
-    // titleType;
-    // storeys;
-    // year;
-    // floorSpace;
-    // bedrooms;
-    // bathrooms;
-
-    // propertyTaxes;
-    // strataFees;
-    // landSize;
-    // basement;
-
-    // interiorFeatures;
-    // buildingFeatures;
-    // propertyFeatures;
-    // neighborhoodFeatures;
-
-    // sellingPrice;
-    // offerHx;
-    // notes;
-
     constructor (
         _listingNum, _agent, _client, _address, _phone, _email,
         _mlsNum, _description, _price,

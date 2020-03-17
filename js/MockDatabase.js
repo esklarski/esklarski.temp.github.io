@@ -71,15 +71,15 @@ var listingArray = [
                 300000, "blah", "blah")
 ];
 
-// database object to simulate query and replies
-// class MockDatabase {
+// database object to simulate query and reply
+class MockDatabase {
 
-    function MockDatabaseNewListingNum() {
+    static newListingNum() {
         var nextListing = listingArray.length + 1;
         return nextListing;
     }
 
-    function MockDatabaseListingNumSearch(number) {
+    static listingNumSearch(number) {
         var found = false;
     
         for (var i = 0; i < listingArray.length; i++) {
@@ -98,7 +98,7 @@ var listingArray = [
         }
     }
     
-    function MockDatabaseAgentNameSearch(name) {
+    static agentNameSearch(name) {
         var found = false;
         var results = [];
     
@@ -117,7 +117,7 @@ var listingArray = [
         }
     }
 
-    function MockDatabasePush(newListing) {
+    static push(newListing) {
         listingArray.push(newListing);
     }
-// }
+}

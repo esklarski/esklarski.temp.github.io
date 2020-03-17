@@ -211,19 +211,24 @@
                     <textarea id="searchResults" cols="30" rows="30"></textarea>
                 </div>
                 <hr>
-                <input type="button" class="generalButton" value="print records"
-                    onclick="chooseActivity('print_documents');">
+
+                <!-- TODO - passing DISPLAYEDLISTING to next step for calculation -->
+                <input type="button" class="generalButton" value="view records"
+                    onclick="chooseActivity('view_records');">
+
                 <input type="button" class="generalButton" value="cancel/return"
                     onclick="chooseActivity('what_to_do');">
+
+                <!-- TODO - properly clear all fields -->
                 <input type="button" class="generalButton" value="clear"
                     onclick="clearSearchResults(); clearAgentSearch();">
             </div>
         </div>
 
     <!-- print records -->
-        <div id="print_documents" class="panel_container">
+        <div id="view_records" class="panel_container">
             <div class="activity_panel">
-                <h3>Print Records</h3>
+                <h3>View Records</h3>
                 <input type="button" class="generalButton" value="return"
                     onclick="chooseActivity('what_to_do');">
             </div>

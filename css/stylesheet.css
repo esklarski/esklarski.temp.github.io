@@ -89,6 +89,6 @@ input[type="button"] {
     }
 
     /* print document page */
-    #print_documents {
+    #view_records {
         background-color: deeppink;
     }

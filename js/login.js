@@ -1,7 +1,7 @@
 function login_click() {
-    // todo: authentication with server
+    // collect username for use on next page
+    sessionStorage.username = document.getElementById("usernameInput").value;
 
-
-    // todo: add server side return of this value
-    location.href = "html/relax_realty.html";
+    // the server should return this value after authentication
+    location.href = "relax_realty.html";
 }

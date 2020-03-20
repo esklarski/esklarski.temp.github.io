@@ -5,10 +5,10 @@
         <title>ReLax Realty Demo</title>
         <meta name="author" content="Evan Sklarski">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="../css/stylesheet.css">
-        <script src="../js/Listing.class.js"></script>
-        <script src="../js/MockDatabase.js"></script>
-        <script src="../js/relax_realty.js"></script>
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <script src="js/Listing.class.js"></script>
+        <script src="js/MockDatabase.js"></script>
+        <script src="js/relax_realty.js"></script>
     </head>
 
     <body onload="chooseActivity('what_to_do');">
@@ -18,7 +18,7 @@
         <div id="what_to_do" class="panel_container">
             <div class="activity_panel">
                 <div id="padding"></div>
-                <h3>Choose Function:</h3>
+                <h3>Choose Function</h3>
                 <input type="button" class="generalButton" value="create listing"
                     onclick="startNewListing();">
                 <hr>
@@ -30,7 +30,7 @@
     <!-- new listing panel -->
         <div id="new_listing" class="panel_container">
             <div class="activity_panel">
-                <h3>Create Listing:</h3>
+                <h3>Create Listing</h3>
 
                 <div id="sub_panel">
                     <div class="listingInput">
@@ -197,7 +197,10 @@
                     <input type="button" class="searchButton" value="seach for listings"
                         onclick="agentSearch();">
                 </div>
-                <div id="agentListingList" onchange="selectSelect();" onclick="selectSelect();"></div>
+                <div id="agentListingList"
+                    onchange="selectSelect();"
+                    onclick="selectSelect();">
+                </div>
                 <hr>
                 <div class="searchInput">
                     <label for="listingSearchInput">Listing number search:</label>
@@ -210,26 +213,45 @@
                     <label for="searchResults">Search Results:</label>
                     <textarea id="searchResults" cols="30" rows="30" readonly></textarea>
                 </div>
+                <input type="button" class="generalButton" value="clear"
+                    onclick="clearSearchButton();">
                 <hr>
 
                 <!-- TODO - passing DISPLAYEDLISTING to next step for calculation -->
                 <input type="button" class="generalButton" value="view records"
-                    onclick="chooseActivity('view_records');">
-
+                    onclick="viewRecordsButton();">
+                <input type="button" class="generalButton" value="update listing"
+                    onclick="updateListingButton();">
+                <hr>
                 <input type="button" class="generalButton" value="cancel/return"
                     onclick="chooseActivity('what_to_do');">
-
-                <!-- TODO - properly clear all fields -->
-                <input type="button" class="generalButton" value="clear"
-                    onclick="clearSearchButton();">
             </div>
         </div>
 
     <!-- print records -->
-        <div id="view_records" class="panel_container">
+        <div id="print_records" class="panel_container">
             <div class="activity_panel">
                 <h3>View Records</h3>
-                <input type="button" class="generalButton" value="return"
+
+                <div class="recordOutput">
+                    <label for="sellingPriceOutput">Selling Price:</label>
+                    <input id="sellingPriceOutput" type="text" readonly>
+                </div>
+                <hr>
+                <div class="recordOutput">
+                    <label for="agentCommission">Agent Commission:</label>
+                    <input id="agentCommission" type="text" readonly>
+                    <p>Note: fee is split 50/50 between selling and buying agents.</p>
+                </div>
+                <hr>
+                <div class="recordOutput">
+                    <label for="sellerFee">Seller's Fee:</label>
+                    <input id="sellerFee" type="text" readonly>
+                </div>
+                <hr>
+                <input type="button" class="generalButton" value="return to search"
+                    onclick="chooseActivity('lookup_listing');">
+                <input type="button" class="generalButton" value="return to start"
                     onclick="chooseActivity('what_to_do');">
             </div>
         </div>

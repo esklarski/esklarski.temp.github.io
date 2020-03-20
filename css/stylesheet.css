@@ -8,6 +8,10 @@ hr {
     width: 300px;
 }
 
+p {
+    font-size: 2vh;
+}
+
 input[type="button"] {
     max-width: 400px;
 }
@@ -89,6 +93,13 @@ input[type="button"] {
     }
 
     /* print document page */
-    #view_records {
+    #print_records {
         background-color: deeppink;
+        height: 90vh;
+    }
+
+    [class*="Output"] {
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
     }

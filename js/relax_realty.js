@@ -1,9 +1,10 @@
 // pull in all activities panels
 var ACTIVITIES = document.getElementsByClassName("panel_container");
 // determined by login page
-var LOGGED_IN_AGENT = "demo_agent";
+var LOGGED_IN_AGENT = setUsername();
 // storage for passing listing between panels
 var DISPLAYED_LISTING = null;
+
 
 
 // ************************************ General Page Functions ************************************
@@ -19,6 +20,15 @@ function chooseActivity(activity) {
         else {
             ACTIVITIES[i].style.display = "block";
         }
+    }
+}
+
+// checks for saved username, passes back a value
+function setUsername() {
+    if (sessionStorage.username != undefined && sessionStorage.username != "") {
+        return sessionStorage.username;
+    } else {
+        return "demo_agent";
     }
 }
 
@@ -159,7 +169,7 @@ function clearSearchResults() {
     DISPLAYED_LISTING = null;
 }
 
-// clear button clicked
+// clear button
 function clearSearchButton() {
     document.getElementById("agentSearchInput").value = "";
     document.getElementById("listingSearchInput").value = "";
@@ -167,6 +177,52 @@ function clearSearchButton() {
     clearAgentSearch();
 }
 
+// update record button
+function updateListingButton() {
+    alert("Feature not implemented yet.");
+}
+
 
 // ************************************ View Records Functions ************************************
 
+// display fee summary - **button on listing search page**
+function viewRecordsButton() {
+    if (DISPLAYED_LISTING != null) {
+        if (parseInt(DISPLAYED_LISTING.sellingPrice)) {
+            chooseActivity('print_records');
+
+            // calculate totals
+            var sellingPrice = parseInt(DISPLAYED_LISTING.sellingPrice);
+            var agentCommission = calcAgentComm(sellingPrice);
+            var sellerFee = calcSellerFee(agentCommission);
+    
+            // output to page
+            document.getElementById("sellingPriceOutput").value = sellingPrice;
+            document.getElementById("agentCommission").value    = agentCommission;
+            document.getElementById("sellerFee").value          = sellerFee;
+        } else {
+            alert("no selling price available for listing");
+        }
+    } else {
+        alert("Please find a record to view via the search functions.");
+    }
+}
+
+// calculate agent's commission
+function calcAgentComm(sellingPrice) {
+    var commision = 0;
+
+    if (sellingPrice - 100000 <= 0) {
+        commision = sellingPrice * 0.06;
+    } else {
+        sellingPrice = sellingPrice - 100000;
+        commision = (sellingPrice * 0.03) + 6000;
+    }
+
+    return commision;
+}
+
+// calculate seller's fee
+function calcSellerFee(agentCommission) {
+    return agentCommission * 1.05;
+}

@@ -101,6 +101,7 @@ class MockDatabase {
         return results;
     }
 
+    // add or update listing
     static push(newListing) {
         var index = newListing.listingNum
 

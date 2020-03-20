@@ -11,10 +11,10 @@
         <script src="js/relax_realty.js"></script>
     </head>
 
-    <body onload="chooseActivity('what_to_do');">
+    <body onload="initializePage();">
     <!-- javascript function shows/hides panels depending upon task -->
 
-    <!-- main panel -->
+<!-- ***** main panel ***** -->
         <div id="what_to_do" class="panel_container">
             <div class="activity_panel">
                 <div id="padding"></div>
@@ -27,11 +27,10 @@
             </div>
         </div>
 
-    <!-- new listing panel -->
+<!-- ***** new listing panel ***** -->
         <div id="new_listing" class="panel_container">
             <div class="activity_panel">
                 <h3>Create Listing</h3>
-
                 <div id="sub_panel">
                     <div class="listingInput">
                         <label for="listingNum">Listing Number</label>
@@ -44,8 +43,8 @@
                         <input id="agent" type="text" value="demo_agent" readonly>
                     </div>
                     <div class="listingInput">
-                        <label for="clientName">Client:</label>
-                        <input id="clientName" type="text" placeholder="happy_client">
+                        <label for="client">Client:</label>
+                        <input id="client" type="text" placeholder="happy_client">
                     </div>
                     <div class="listingInput">
                         <label for="address">Property Address:</label>
@@ -53,12 +52,12 @@
                             placeholder="a numbered house on a street&#10;in a city with a postal code"></textarea>
                     </div>
                     <div class="listingInput">
-                        <label for="clientPhone">Client Phone #:</label>
-                        <input id="clientPhone" type="text" placeholder="x-xxx-xxx-xxxx">
+                        <label for="phone">Client Phone #:</label>
+                        <input id="phone" type="text" placeholder="x-xxx-xxx-xxxx">
                     </div>
                     <div class="listingInput">
-                        <label for="clientEmail">Client Email:</label>
-                        <input id="clientEmail" type="text" placeholder="a.person@some.service">
+                        <label for="email">Client Email:</label>
+                        <input id="email" type="text" placeholder="a.person@some.service">
                     </div>
                 </div>
                 <hr>
@@ -69,13 +68,13 @@
                         <input id="mlsNum" type="text" placeholder="Rxxxxxxx">
                     </div>
                     <div class="listingInput">
-                        <label for="propertyDescription">Description:</label>
-                        <textarea id="propertyDescription" cols="30" rows="10"
+                        <label for="description">Description:</label>
+                        <textarea id="description" cols="30" rows="10"
                             placeholder="a charming buliding you might like,&#10;with amenities, rooms, and maybe a bathroom"></textarea>
                     </div>
                     <div class="listingInput">
-                        <label for="askingPrice">Asking Price:</label>
-                        <input id="askingPrice" type="text" placeholder="$x,xxx,xxx.xx">
+                        <label for="price">Asking Price:</label>
+                        <input id="price" type="text" placeholder="$x,xxx,xxx.xx">
                     </div>
                 </div>
                 <hr>
@@ -112,12 +111,12 @@
                         <input id="floorSpace" type="text" placeholder="1275">
                     </div>
                     <div class="listingInput">
-                        <label for="bedroonmNum">Bedrooms:</label>
-                        <input id="bedroomNum" type="text" placeholder="3">
+                        <label for="bedrooms">Bedrooms:</label>
+                        <input id="bedrooms" type="text" placeholder="3">
                     </div>
                     <div class="listingInput">
-                        <label for="bathroomNum">Bathrooms:</label>
-                        <input id="bathroomNum" type="text" placeholder="2">
+                        <label for="bathrooms">Bathrooms:</label>
+                        <input id="bathrooms" type="text" placeholder="2">
                     </div>
                 </div>
                 <hr>
@@ -175,19 +174,19 @@
                         <textarea id="offerHx" cols="30" rows="10"></textarea>
                     </div>
                     <div class="listingInput">
-                        <label for="listingNotes">Notes:</label>
-                        <textarea id="listingNotes" cols="30" rows="5"></textarea>
+                        <label for="notes">Notes:</label>
+                        <textarea id="notes" cols="30" rows="5"></textarea>
                     </div>
                 </div>
                 <hr>
-                <input type="button" class="generalButton" value="create listing"
+                <input type="button" class="generalButton" value="create/update listing"
                     onclick="createNewListing();">
-                <input type="button" class="generalButton" value="cancel"
+                <input type="button" class="generalButton" value="cancel (clear)"
                     onclick="cancelNewListingButton();">
             </div>
         </div>
 
-    <!-- listing search -->
+<!-- ***** listing search ***** -->
         <div id="lookup_listing" class="panel_container">
             <div class="activity_panel">
                 <h3>Lookup Listings</h3>
@@ -216,8 +215,6 @@
                 <input type="button" class="generalButton" value="clear"
                     onclick="clearSearchButton();">
                 <hr>
-
-                <!-- TODO - passing DISPLAYEDLISTING to next step for calculation -->
                 <input type="button" class="generalButton" value="view records"
                     onclick="viewRecordsButton();">
                 <input type="button" class="generalButton" value="update listing"
@@ -228,7 +225,7 @@
             </div>
         </div>
 
-    <!-- print records -->
+<!-- ***** print records ***** -->
         <div id="print_records" class="panel_container">
             <div class="activity_panel">
                 <h3>View Records</h3>
@@ -241,7 +238,7 @@
                 <div class="recordOutput">
                     <label for="agentCommission">Agent Commission:</label>
                     <input id="agentCommission" type="text" readonly>
-                    <p>Note: fee is split 50/50 between selling and buying agents.</p>
+                    <p>Note: fee is split 50/50 between selling and buying agents. Monthly Agency Fee </p>
                 </div>
                 <hr>
                 <div class="recordOutput">
@@ -252,7 +249,7 @@
                 <input type="button" class="generalButton" value="return to search"
                     onclick="chooseActivity('lookup_listing');">
                 <input type="button" class="generalButton" value="return to start"
-                    onclick="chooseActivity('what_to_do');">
+                    onclick="initializePage();">
             </div>
         </div>
     </body>

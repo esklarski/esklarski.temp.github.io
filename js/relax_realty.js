@@ -5,9 +5,14 @@ var LOGGED_IN_AGENT = setUsername();
 // storage for passing listing between panels
 var DISPLAYED_LISTING = null;
 
+function initializePage() {
+    clearNewListingForm();
+    clearSearchButton();
+    chooseActivity('what_to_do');
+}
 
 
-// ************************************ General Page Functions ************************************
+// *********************************** General Page Functions ***********************************
 
 // show and hide activity panels
 function chooseActivity(activity) {
@@ -33,7 +38,7 @@ function setUsername() {
 }
 
 
-// *********************************** Create Listing Functions ***********************************
+// ********************************** Create Listing Functions **********************************
 
 // system determines new listing number
 function startNewListing() {
@@ -59,20 +64,20 @@ function cancelNewListingButton() {
 
 // clear clear new listing form fields
 function clearNewListingForm() {
-    document.getElementById("clientName").value = "";
+    document.getElementById("client").value = "";
     document.getElementById("address").value = "";
-    document.getElementById("clientPhone").value = "";
-    document.getElementById("clientEmail").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("email").value = "";
     document.getElementById("mlsNum").value = "";
-    document.getElementById("propertyDescription").value = "";
-    document.getElementById("askingPrice").value = "";
+    document.getElementById("description").value = "";
+    document.getElementById("price").value = "";
     document.getElementById("propertyType").selectedIndex = 0;
     document.getElementById("titleType").selectedIndex = 0;
     document.getElementById("storeys").value = "";
     document.getElementById("year").value = "";
     document.getElementById("floorSpace").value = "";
-    document.getElementById("bedroomNum").value = "";
-    document.getElementById("bathroomNum").value = "";
+    document.getElementById("bedrooms").value = "";
+    document.getElementById("bathrooms").value = "";
     document.getElementById("propertyTaxes").value = "";
     document.getElementById("strataFees").value = "";
     document.getElementById("landSize").value = "";
@@ -83,11 +88,11 @@ function clearNewListingForm() {
     document.getElementById("neighborhoodFeatures").value = "";
     document.getElementById("sellingPrice").value = "";
     document.getElementById("offerHx").value = "";
-    document.getElementById("listingNotes").value = "";
+    document.getElementById("notes").value = "";
 }
 
 
-// *********************************** Listing Search Functions ***********************************
+// ********************************** Listing Search Functions **********************************
 
 // search database by agent name
 function agentSearch() {
@@ -96,8 +101,10 @@ function agentSearch() {
     var searchKey = document.getElementById("agentSearchInput").value;
     var listings = MockDatabase.agentNameSearch(searchKey);
 
-    if (listings != null) {
+    if (listings.length != 0) {
         displaySelect(listings);
+    } else {
+        alert("Agent name not found.");
     }
 }
 
@@ -109,10 +116,25 @@ function numberSearch() {
     var listing = MockDatabase.listingNumSearch(searchKey);
 
     if (listing != null) {
-        DISPLAYED_LISTING = listing;
-        var output = document.getElementById("searchResults");
+        displaySearchResults(listing);
+    } else {
+        alert("Listing number not found.");
+    }
+}
 
-        for (var key in listing) {
+// display search results omitting sensitive data
+function displaySearchResults(listing) {
+    DISPLAYED_LISTING = listing;
+    var output = document.getElementById("searchResults");
+
+    for (var key in listing) {
+        if (key == "client" || key == "phone" || key == "email" || key == "notes") {
+            if (LOGGED_IN_AGENT == listing.agent) {
+                output.value = output.value + key + ": " + listing[key] + "\n";
+            } else {
+                continue;
+            }
+        } else {
             output.value = output.value + key + ": " + listing[key] + "\n";
         }
     }
@@ -122,9 +144,7 @@ function numberSearch() {
 function displaySelect(listings) {
     var myDiv = document.getElementById("agentListingList");
 
-    if (listings.length < 2) {
-        var size = 2;
-    } else if (listings.length > 5) {
+    if (listings.length > 5) {
         var size = 5;
     } else {
         var size = listings.length;
@@ -177,13 +197,25 @@ function clearSearchButton() {
     clearAgentSearch();
 }
 
-// update record button
+// check authorization to edit, then display in create panel
 function updateListingButton() {
-    alert("Feature not implemented yet.");
+    if (DISPLAYED_LISTING != null) {
+        if (DISPLAYED_LISTING.agent == LOGGED_IN_AGENT) {
+            for (var key in DISPLAYED_LISTING) {
+                document.getElementById(key).value = DISPLAYED_LISTING[key];
+            }
+
+            chooseActivity('new_listing');
+        } else {
+            alert("You may only update your own records.\nPlease speak to management, to report\nany inconsistencies or errors found.");
+        }
+    } else {
+        alert("Please find a record to update via the search functions.");
+    }
 }
 
 
-// ************************************ View Records Functions ************************************
+// *********************************** View Records Functions ***********************************
 
 // display fee summary - **button on listing search page**
 function viewRecordsButton() {
@@ -211,12 +243,13 @@ function viewRecordsButton() {
 // calculate agent's commission
 function calcAgentComm(sellingPrice) {
     var commision = 0;
+    var listingFee = 400;
 
     if (sellingPrice - 100000 <= 0) {
         commision = sellingPrice * 0.06;
     } else {
         sellingPrice = sellingPrice - 100000;
-        commision = (sellingPrice * 0.03) + 6000;
+        commision = (sellingPrice * 0.03) + 6000 - listingFee;
     }
 
     return commision;

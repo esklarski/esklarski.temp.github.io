@@ -47,22 +47,22 @@ class Listing {
         // TODO: input validation
         var _listingNum = document.getElementById("listingNum").value;
         var _agent      = document.getElementById("agent").value;
-        var _client     = document.getElementById("clientName").value;
+        var _client     = document.getElementById("client").value;
         var _address    = document.getElementById("address").value;
-        var _phone      = document.getElementById("clientPhone").value;
-        var _email      = document.getElementById("clientEmail").value;
+        var _phone      = document.getElementById("phone").value;
+        var _email      = document.getElementById("email").value;
 
         var _mlsNum      = document.getElementById("mlsNum").value;
-        var _description = document.getElementById("propertyDescription").value;
-        var _price       = document.getElementById("askingPrice").value;
+        var _description = document.getElementById("description").value;
+        var _price       = document.getElementById("price").value;
 
         var _propertyType = document.getElementById("propertyType").value;
         var _titleType    = document.getElementById("titleType").value;
         var _storeys      = document.getElementById("storeys").value;
         var _year         = document.getElementById("year").value;
         var _floorSpace   = document.getElementById("floorSpace").value;
-        var _bedrooms     = document.getElementById("bedroomNum").value;
-        var _bathrooms    = document.getElementById("bathroomNum").value;
+        var _bedrooms     = document.getElementById("bedrooms").value;
+        var _bathrooms    = document.getElementById("bathrooms").value;
 
         var _propertyTaxes = document.getElementById("propertyTaxes").value;
         var _strataFees    = document.getElementById("strataFees").value;
@@ -76,7 +76,7 @@ class Listing {
 
         var _sellingPrice = document.getElementById("sellingPrice").value;
         var _offerHx      = document.getElementById("offerHx").value;
-        var _notes        = document.getElementById("listingNotes").value;
+        var _notes        = document.getElementById("notes").value;
         
         return new Listing(
             _listingNum, _agent, _client, _address, _phone, _email,

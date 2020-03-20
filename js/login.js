@@ -1,7 +1,17 @@
 function login_click() {
     // collect username for use on next page
-    sessionStorage.username = document.getElementById("usernameInput").value;
+    var usernameInput = document.getElementById("usernameInput").value;
 
-    // the server should return this value after authentication
-    location.href = "relax_realty.html";
+    // authentication
+    location.href = fakeAuthentication(usernameInput);
+}
+
+function fakeAuthentication(username) {
+    if (usernameInput != "") {
+        sessionStorage.username = username;
+    } else {
+        sessionStorage.username = "demo_agent";
+    }
+
+    return "relax_realty.html";
 }

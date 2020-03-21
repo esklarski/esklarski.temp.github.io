@@ -37,6 +37,10 @@ function setUsername() {
     }
 }
 
+function toCurrency(number) {
+    return number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+}
+
 
 // ********************************** Create Listing Functions **********************************
 
@@ -53,7 +57,9 @@ function createNewListing() {
     var newListing = Listing.new();
 
     MockDatabase.push(newListing);
+
     chooseActivity('what_to_do');
+    clearNewListingForm();
 }
 
 // cancels creation and returns to main panel
@@ -72,7 +78,7 @@ function clearNewListingForm() {
     document.getElementById("description").value = "";
     document.getElementById("price").value = "";
     document.getElementById("propertyType").selectedIndex = 0;
-    document.getElementById("titleType").selectedIndex = 0;
+    document.getElementById("titleType").selectedIndex    = 0;
     document.getElementById("storeys").value = "";
     document.getElementById("year").value = "";
     document.getElementById("floorSpace").value = "";
@@ -134,6 +140,8 @@ function displaySearchResults(listing) {
             } else {
                 continue;
             }
+        } else if (key == "price" || key == "sellingPrice") {
+            output.value = output.value + key + ": " + toCurrency(listing[key]) + "\n";
         } else {
             output.value = output.value + key + ": " + listing[key] + "\n";
         }
@@ -142,27 +150,26 @@ function displaySearchResults(listing) {
 
 // display select with agent listings
 function displaySelect(listings) {
-    var myDiv = document.getElementById("agentListingList");
-
-    if (listings.length > 5) {
-        var size = 5;
-    } else {
-        var size = listings.length;
-    }
+    var agentListings = document.getElementById("agentListingList");
 
     //Create and append select list
     var selectList = document.createElement("select");
     selectList.setAttribute("id", "listingSelect");
-    selectList.setAttribute("size", size);
-    myDiv.appendChild(selectList);
+    selectList.setAttribute("size", 1);
+    agentListings.appendChild(selectList);
 
     //Create and append the options
     for (var i = 0; i < listings.length; i++) {
         var option = document.createElement("option");
         option.setAttribute("value", listings[i].listingNum);
-        option.text = listings[i].listingNum;
+        option.text = "#" + listings[i].listingNum
+                        + " - " + listings[i].propertyType
+                        + " " + toCurrency(listings[i].sellingPrice);
         selectList.appendChild(option);
     }
+
+    document.getElementById("listingSelect").selectedIndex = 0;
+    selectSelect();
 }
 
 // display selected listing in search box
@@ -191,7 +198,7 @@ function clearSearchResults() {
 
 // clear button
 function clearSearchButton() {
-    document.getElementById("agentSearchInput").value = "";
+    document.getElementById("agentSearchInput").value   = "";
     document.getElementById("listingSearchInput").value = "";
     clearSearchResults();
     clearAgentSearch();
@@ -217,21 +224,29 @@ function updateListingButton() {
 
 // *********************************** View Records Functions ***********************************
 
+function printClientRecord() {
+    if (DISPLAYED_LISTING.agent == LOGGED_IN_AGENT) {
+        alert("Feature not yet implemented.\nImagine I gave you a pdf...")
+    } else {
+        alert("You may only print records for your clients.");
+    }
+}
+
 // display fee summary - **button on listing search page**
 function viewRecordsButton() {
     if (DISPLAYED_LISTING != null) {
         if (parseInt(DISPLAYED_LISTING.sellingPrice)) {
             chooseActivity('print_records');
 
-            // calculate totals
-            var sellingPrice = parseInt(DISPLAYED_LISTING.sellingPrice);
-            var agentCommission = calcAgentComm(sellingPrice);
-            var sellerFee = calcSellerFee(agentCommission);
+            var sellingPrice          = parseInt(DISPLAYED_LISTING.sellingPrice);
+            var agentCommissionTotal  = calcTotalComm(sellingPrice);
+            var singleAgentCommission = calcAgentComm(agentCommissionTotal);
+            var sellerFee             = calcSellerFee(agentCommissionTotal);
     
-            // output to page
-            document.getElementById("sellingPriceOutput").value = sellingPrice;
-            document.getElementById("agentCommission").value    = agentCommission;
-            document.getElementById("sellerFee").value          = sellerFee;
+            document.getElementById("sellingPriceOutput").value    = toCurrency(sellingPrice);
+            document.getElementById("agentCommissionTotal").value  = toCurrency(agentCommissionTotal);
+            document.getElementById("agentCommissionSingle").value = toCurrency(singleAgentCommission);
+            document.getElementById("sellerFee").value             = toCurrency(sellerFee);
         } else {
             alert("no selling price available for listing");
         }
@@ -240,22 +255,21 @@ function viewRecordsButton() {
     }
 }
 
-// calculate agent's commission
-function calcAgentComm(sellingPrice) {
-    var commision = 0;
-    var listingFee = 400;
-
-    if (sellingPrice - 100000 <= 0) {
-        commision = sellingPrice * 0.06;
+// calculate sale total commission
+function calcTotalComm(sellingPrice) {
+    if (sellingPrice <= 100000) {
+        return sellingPrice * 0.06;
     } else {
-        sellingPrice = sellingPrice - 100000;
-        commision = (sellingPrice * 0.03) + 6000 - listingFee;
+        return ((sellingPrice - 100000) * 0.03) + 6000;
     }
+}
 
-    return commision;
+// caclulate individual agent commission
+function calcAgentComm(agentCommissionTotal) {
+    return (agentCommissionTotal / 2) - 400;
 }
 
 // calculate seller's fee
-function calcSellerFee(agentCommission) {
-    return agentCommission * 1.05;
+function calcSellerFee(agentCommissionTotal) {
+    return agentCommissionTotal * 1.05;
 }

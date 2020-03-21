@@ -198,7 +198,7 @@
                 </div>
                 <div id="agentListingList"
                     onchange="selectSelect();"
-                    onclick="selectSelect();">
+                    >
                 </div>
                 <hr>
                 <div class="searchInput">
@@ -236,15 +236,21 @@
                 </div>
                 <hr>
                 <div class="recordOutput">
-                    <label for="agentCommission">Agent Commission:</label>
-                    <input id="agentCommission" type="text" readonly>
-                    <p>Note: fee is split 50/50 between selling and buying agents. Monthly Agency Fee </p>
+                    <label for="agentCommissionTotal">Commission Total:</label>
+                    <input id="agentCommissionTotal" type="text" readonly>
+                </div>
+                <div class="recordOutput">
+                    <label for="agentCommissionSingle">Agent Commission:</label>
+                    <input id="agentCommissionSingle" type="text" readonly>
+                    <p>Note: Monthly Agency Fee not calculated here.</p>
                 </div>
                 <hr>
                 <div class="recordOutput">
                     <label for="sellerFee">Seller's Fee:</label>
                     <input id="sellerFee" type="text" readonly>
                 </div>
+                <input type="button" class="printButton" value="print client record"
+                        onclick="printClientRecord();">
                 <hr>
                 <input type="button" class="generalButton" value="return to search"
                     onclick="chooseActivity('lookup_listing');">

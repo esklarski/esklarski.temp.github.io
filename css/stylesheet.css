@@ -16,10 +16,6 @@ input[type="button"] {
     max-width: 400px;
 }
 
-.searchButton {
-    height: 25px;
-}
-
 .generalButton {
     height: 50px;
 }
@@ -81,7 +77,11 @@ input[type="button"] {
         background-color: deeppink;
     }
 
-    /* lookup listing page */
+    .searchButton {
+        height: 25px;
+    }
+
+    /* listing search page */
     #lookup_listing {
         background-color: deeppink;
     }
@@ -102,4 +102,8 @@ input[type="button"] {
         max-width: 400px;
         display: flex;
         flex-direction: column;
+    }
+
+    .printButton {
+        height: 25px;
     }

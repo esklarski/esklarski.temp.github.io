@@ -64,8 +64,8 @@ class Listing {
         var _bedrooms     = document.getElementById("bedrooms").value;
         var _bathrooms    = document.getElementById("bathrooms").value;
 
-        var _propertyTaxes = document.getElementById("propertyTaxes").value;
-        var _strataFees    = document.getElementById("strataFees").value;
+        var _propertyTaxes = parseInt(document.getElementById("propertyTaxes").value);
+        var _strataFees    = parseInt(document.getElementById("strataFees").value);
         var _landSize      = document.getElementById("landSize").value;
         var _basement      = document.getElementById("basement").value;
 

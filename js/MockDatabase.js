@@ -73,7 +73,6 @@ var listingArray = [
 
 // database object to simulate query and reply
 class MockDatabase {
-
     // send back next listing number
     static newListingNum() {
         return listingArray.length;

@@ -89,5 +89,4 @@ class Listing {
             _sellingPrice, _offerHx, _notes
         );
     }
-
 }

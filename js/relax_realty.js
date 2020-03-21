@@ -68,7 +68,7 @@ function cancelNewListingButton() {
     chooseActivity('what_to_do');
 }
 
-// clear clear new listing form fields
+// clear new listing form fields
 function clearNewListingForm() {
     document.getElementById("client").value = "";
     document.getElementById("address").value = "";

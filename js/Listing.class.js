@@ -54,7 +54,7 @@ class Listing {
 
         var _mlsNum      = document.getElementById("mlsNum").value;
         var _description = document.getElementById("description").value;
-        var _price       = document.getElementById("price").value;
+        var _price       = parseInt(document.getElementById("price").value);
 
         var _propertyType = document.getElementById("propertyType").value;
         var _titleType    = document.getElementById("titleType").value;
@@ -74,7 +74,7 @@ class Listing {
         var _propertyFeatures     = document.getElementById("propertyFeatures").value;
         var _neighborhoodFeatures = document.getElementById("neighborhoodFeatures").value;
 
-        var _sellingPrice = document.getElementById("sellingPrice").value;
+        var _sellingPrice = parseInt(document.getElementById("sellingPrice").value);
         var _offerHx      = document.getElementById("offerHx").value;
         var _notes        = document.getElementById("notes").value;
         

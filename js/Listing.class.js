@@ -54,7 +54,7 @@ class Listing {
 
         var _mlsNum      = document.getElementById("mlsNum").value;
         var _description = document.getElementById("description").value;
-        var _price       = parseInt(document.getElementById("price").value);
+        var _price       = parseInt(document.getElementById("price").value) || "";
 
         var _propertyType = document.getElementById("propertyType").value;
         var _titleType    = document.getElementById("titleType").value;
@@ -64,8 +64,8 @@ class Listing {
         var _bedrooms     = document.getElementById("bedrooms").value;
         var _bathrooms    = document.getElementById("bathrooms").value;
 
-        var _propertyTaxes = parseInt(document.getElementById("propertyTaxes").value);
-        var _strataFees    = parseInt(document.getElementById("strataFees").value);
+        var _propertyTaxes = parseInt(document.getElementById("propertyTaxes").value) || "";
+        var _strataFees    = parseInt(document.getElementById("strataFees").value) || "";
         var _landSize      = document.getElementById("landSize").value;
         var _basement      = document.getElementById("basement").value;
 
@@ -74,7 +74,7 @@ class Listing {
         var _propertyFeatures     = document.getElementById("propertyFeatures").value;
         var _neighborhoodFeatures = document.getElementById("neighborhoodFeatures").value;
 
-        var _sellingPrice = parseInt(document.getElementById("sellingPrice").value);
+        var _sellingPrice = parseInt(document.getElementById("sellingPrice").value) || "";
         var _offerHx      = document.getElementById("offerHx").value;
         var _notes        = document.getElementById("notes").value;
         

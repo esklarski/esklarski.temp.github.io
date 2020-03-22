@@ -64,8 +64,8 @@ function createNewListing() {
 
 // cancels creation and returns to main panel
 function cancelNewListingButton() {
-    clearNewListingForm();
     chooseActivity('what_to_do');
+    clearNewListingForm();
 }
 
 // clear new listing form fields
@@ -214,45 +214,53 @@ function updateListingButton() {
 
             chooseActivity('new_listing');
         } else {
-            alert("You may only update your own records.\nPlease speak to management, to report\nany inconsistencies or errors found.");
+            alert("You may only update your own records. Please speak to management, to report any inconsistencies or errors found.");
         }
     } else {
         alert("Please find a record to update via the search functions.");
     }
 }
 
+function viewRecordsButton() {
+    if (DISPLAYED_LISTING != null) {
+        if (calcRecords() == true) {
+            chooseActivity('print_records');
+        } else {
+            alert("no selling price available for listing");
+        }
+    } else {
+        alert("Please find a record to view via the search functions.");
+    }
+}
+
 
 // *********************************** View Records Functions ***********************************
+
+// calculate and display fee summary - return bool to indicate success
+function calcRecords() {
+    if (DISPLAYED_LISTING.sellingPrice != "") {
+        var sellingPrice          = DISPLAYED_LISTING.sellingPrice;
+        var agentCommissionTotal  = calcTotalComm(sellingPrice);
+        var singleAgentCommission = calcAgentComm(agentCommissionTotal);
+        var sellerFee             = calcSellerFee(agentCommissionTotal);
+
+        document.getElementById("sellingPriceOutput").value    = toCurrency(sellingPrice);
+        document.getElementById("agentCommissionTotal").value  = toCurrency(agentCommissionTotal);
+        document.getElementById("agentCommissionSingle").value = toCurrency(singleAgentCommission);
+        document.getElementById("sellerFee").value             = toCurrency(sellerFee);
+        document.getElementById("sellerNet").value             = toCurrency(sellingPrice - sellerFee);
+
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function printClientRecord() {
     if (DISPLAYED_LISTING.agent == LOGGED_IN_AGENT) {
         alert("Feature not yet implemented.\nImagine I gave you a pdf...")
     } else {
         alert("You may only print records for your clients.");
-    }
-}
-
-// display fee summary - **button on listing search page**
-function viewRecordsButton() {
-    if (DISPLAYED_LISTING != null) {
-        if (parseInt(DISPLAYED_LISTING.sellingPrice)) {
-            chooseActivity('print_records');
-
-            var sellingPrice          = parseInt(DISPLAYED_LISTING.sellingPrice);
-            var agentCommissionTotal  = calcTotalComm(sellingPrice);
-            var singleAgentCommission = calcAgentComm(agentCommissionTotal);
-            var sellerFee             = calcSellerFee(agentCommissionTotal);
-    
-            document.getElementById("sellingPriceOutput").value    = toCurrency(sellingPrice);
-            document.getElementById("agentCommissionTotal").value  = toCurrency(agentCommissionTotal);
-            document.getElementById("agentCommissionSingle").value = toCurrency(singleAgentCommission);
-            document.getElementById("sellerFee").value             = toCurrency(sellerFee);
-            document.getElementById("sellerNet").value             = toCurrency(sellingPrice - sellerFee);
-        } else {
-            alert("no selling price available for listing");
-        }
-    } else {
-        alert("Please find a record to view via the search functions.");
     }
 }
 

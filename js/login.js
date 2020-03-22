@@ -8,7 +8,7 @@ function login_click() {
 
 function fakeAuthentication(username) {
     if (usernameInput != "") {
-        sessionStorage.username = username;
+        sessionStorage.username = username.toLowerCase();
     } else {
         sessionStorage.username = "demo_agent";
     }

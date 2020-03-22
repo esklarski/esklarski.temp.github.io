@@ -247,6 +247,7 @@ function viewRecordsButton() {
             document.getElementById("agentCommissionTotal").value  = toCurrency(agentCommissionTotal);
             document.getElementById("agentCommissionSingle").value = toCurrency(singleAgentCommission);
             document.getElementById("sellerFee").value             = toCurrency(sellerFee);
+            document.getElementById("sellerNet").value             = toCurrency(sellingPrice - sellerFee);
         } else {
             alert("no selling price available for listing");
         }

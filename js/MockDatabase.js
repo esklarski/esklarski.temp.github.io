@@ -90,6 +90,7 @@ class MockDatabase {
     // search by agent name, return array of matching listings
     static agentNameSearch(name) {
         var results = [];
+        name = name.toLowerCase();
     
         for (var i = 0; i < listingArray.length; i++) {
             if (listingArray[i].agent == name) {

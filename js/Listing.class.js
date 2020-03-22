@@ -46,7 +46,7 @@ class Listing {
     static new() {
         // TODO: input validation
         var _listingNum = document.getElementById("listingNum").value;
-        var _agent      = document.getElementById("agent").value;
+        var _agent      = document.getElementById("agent").value.toLowerCase();
         var _client     = document.getElementById("client").value;
         var _address    = document.getElementById("address").value;
         var _phone      = document.getElementById("phone").value;

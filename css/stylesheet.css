@@ -10,10 +10,15 @@ h1, h3, h5 {
 
 hr {
     width: 300px;
+    color: darkturquoise;
 }
 
 p {
     font-size: 2vh;
+}
+
+#spacing {
+    font-size: 2.5px;
 }
 
 input[type="button"] {

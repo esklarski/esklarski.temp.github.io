@@ -44,12 +44,16 @@ function toCurrency(number) {
 
 // ********************************** Create Listing Functions **********************************
 
-// system determines new listing number
-function startNewListing() {
-    chooseActivity('new_listing');
+function startNewListing(newListing) {
+    if (newListing) {
+        document.getElementById("createUpdateButton").value = "create listing";
+        document.getElementById("listingNum").value = MockDatabase.newListingNum();
+        document.getElementById("agent").value = LOGGED_IN_AGENT;
+    } else {
+        document.getElementById("createUpdateButton").value = "update listing";
+    }
 
-    document.getElementById("listingNum").value = MockDatabase.newListingNum();
-    document.getElementById("agent").value = LOGGED_IN_AGENT;
+    chooseActivity('new_listing');
 }
 
 // create new listing in mock database
@@ -163,8 +167,8 @@ function displaySelect(listings) {
         var option = document.createElement("option");
         option.setAttribute("value", listings[i].listingNum);
         option.text = "#" + listings[i].listingNum
-                        + " - " + listings[i].propertyType
-                        + " " + toCurrency(listings[i].sellingPrice);
+                  + " - " + listings[i].propertyType
+                  +  " "  + toCurrency(listings[i].sellingPrice);
         selectList.appendChild(option);
     }
 
@@ -212,7 +216,7 @@ function updateListingButton() {
                 document.getElementById(key).value = DISPLAYED_LISTING[key];
             }
 
-            chooseActivity('new_listing');
+            startNewListing(false);
             clearSearchButton();
         } else {
             alert("You may only update your own records. Please speak to management, to report any inconsistencies or errors found.");

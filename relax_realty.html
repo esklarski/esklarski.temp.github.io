@@ -20,7 +20,7 @@
                 <div id="padding"></div>
                 <h3>Choose Function</h3>
                 <input type="button" class="generalButton" value="create listing"
-                    onclick="startNewListing();">
+                    onclick="startNewListing(true);">
                 <hr>
                 <input type="button" class="generalButton" value="lookup listing"
                     onclick="chooseActivity('lookup_listing');">
@@ -179,8 +179,9 @@
                     </div>
                 </div>
                 <hr>
-                <input type="button" class="generalButton" value="create/update listing"
+                <input type="button" class="generalButton" id="createUpdateButton" value=""
                     onclick="createNewListing();">
+                <p id="spacing"></p>
                 <input type="button" class="generalButton" value="cancel (clear)"
                     onclick="cancelNewListingButton();">
             </div>
@@ -217,6 +218,7 @@
                 <hr>
                 <input type="button" class="generalButton" value="view records"
                     onclick="viewRecordsButton();">
+                <p id="spacing"></p>
                 <input type="button" class="generalButton" value="update listing"
                     onclick="updateListingButton();">
                 <hr>
@@ -258,6 +260,7 @@
                 <hr>
                 <input type="button" class="generalButton" value="return to search"
                     onclick="chooseActivity('lookup_listing');">
+                <p id="spacing"></p>
                 <input type="button" class="generalButton" value="return to start"
                     onclick="initializePage();">
             </div>

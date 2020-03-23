@@ -213,6 +213,7 @@ function updateListingButton() {
             }
 
             chooseActivity('new_listing');
+            clearSearchButton();
         } else {
             alert("You may only update your own records. Please speak to management, to report any inconsistencies or errors found.");
         }

@@ -98,7 +98,11 @@ class MockDatabase {
             }
         }
 
-        return results;
+        if (results.length > 0) {
+            return results;
+        } else {
+            return null;
+        }
     }
 
     // add or update listing

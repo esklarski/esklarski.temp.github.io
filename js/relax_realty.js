@@ -120,7 +120,7 @@ function agentSearch() {
     var searchKey = document.getElementById("agentSearchInput").value;
     var listings = MockDatabase.agentNameSearch(searchKey);
 
-    if (listings.length != 0) {
+    if (listings != null) {
         displaySelect(listings);
     } else {
         alert("Agent name not found.");

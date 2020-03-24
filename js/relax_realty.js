@@ -56,6 +56,8 @@ function editListing(newListing) {
         for (var key in DISPLAYED_LISTING) {
             document.getElementById(key).value = DISPLAYED_LISTING[key];
         }
+
+        window.scrollTo(0,0);
     }
 
     chooseActivity('new_listing');

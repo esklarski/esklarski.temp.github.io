@@ -37,6 +37,7 @@ function setUsername() {
     }
 }
 
+// convert number to currency for display
 function toCurrency(number) {
     return number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 }
@@ -44,13 +45,17 @@ function toCurrency(number) {
 
 // ********************************** Create Listing Functions **********************************
 
-function startNewListing(newListing) {
+function editListing(newListing) {
     if (newListing) {
         document.getElementById("createUpdateButton").value = "create listing";
         document.getElementById("listingNum").value = MockDatabase.newListingNum();
         document.getElementById("agent").value = LOGGED_IN_AGENT;
     } else {
         document.getElementById("createUpdateButton").value = "update listing";
+
+        for (var key in DISPLAYED_LISTING) {
+            document.getElementById(key).value = DISPLAYED_LISTING[key];
+        }
     }
 
     chooseActivity('new_listing');
@@ -212,11 +217,7 @@ function clearSearchButton() {
 function updateListingButton() {
     if (DISPLAYED_LISTING != null) {
         if (DISPLAYED_LISTING.agent == LOGGED_IN_AGENT) {
-            for (var key in DISPLAYED_LISTING) {
-                document.getElementById(key).value = DISPLAYED_LISTING[key];
-            }
-
-            startNewListing(false);
+            editListing(false);
             clearSearchButton();
         } else {
             alert("You may only update your own records. Please speak to management, to report any inconsistencies or errors found.");

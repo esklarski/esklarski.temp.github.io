@@ -233,7 +233,8 @@ function updateListingButton() {
 
 function viewRecordsButton() {
     if (DISPLAYED_LISTING != null) {
-        if (calcRecords() == true) {
+        if (DISPLAYED_LISTING.sellingPrice != "") {
+            calcRecords();
             chooseActivity('print_records');
         } else {
             alert("no selling price available for listing");
@@ -246,24 +247,18 @@ function viewRecordsButton() {
 
 // *********************************** View Records Functions ***********************************
 
-// calculate and display fee summary - return bool to indicate success
+// calculate and display fee summary
 function calcRecords() {
-    if (DISPLAYED_LISTING.sellingPrice != "") {
-        var sellingPrice          = DISPLAYED_LISTING.sellingPrice;
-        var agentCommissionTotal  = calcTotalComm(sellingPrice);
-        var singleAgentCommission = calcAgentComm(agentCommissionTotal);
-        var sellerFee             = calcSellerFee(agentCommissionTotal);
+    var sellingPrice          = DISPLAYED_LISTING.sellingPrice;
+    var agentCommissionTotal  = calcTotalComm(sellingPrice);
+    var singleAgentCommission = calcAgentComm(agentCommissionTotal);
+    var sellerFee             = calcSellerFee(agentCommissionTotal);
 
-        document.getElementById("sellingPriceOutput").value    = toCurrency(sellingPrice);
-        document.getElementById("agentCommissionTotal").value  = toCurrency(agentCommissionTotal);
-        document.getElementById("agentCommissionSingle").value = toCurrency(singleAgentCommission);
-        document.getElementById("sellerFee").value             = toCurrency(sellerFee);
-        document.getElementById("sellerNet").value             = toCurrency(sellingPrice - sellerFee);
-
-        return true;
-    } else {
-        return false;
-    }
+    document.getElementById("sellingPriceOutput").value    = toCurrency(sellingPrice);
+    document.getElementById("agentCommissionTotal").value  = toCurrency(agentCommissionTotal);
+    document.getElementById("agentCommissionSingle").value = toCurrency(singleAgentCommission);
+    document.getElementById("sellerFee").value             = toCurrency(sellerFee);
+    document.getElementById("sellerNet").value             = toCurrency(sellingPrice - sellerFee);
 }
 
 function printClientRecord() {

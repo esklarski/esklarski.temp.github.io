@@ -47,10 +47,12 @@ function toCurrency(number) {
 
 function editListing(newListing) {
     if (newListing) {
+        document.getElementById("createUpdateTitle").textContent = "Create Listing";
         document.getElementById("createUpdateButton").value = "create listing";
         document.getElementById("listingNum").value = MockDatabase.newListingNum();
         document.getElementById("agent").value = LOGGED_IN_AGENT;
     } else {
+        document.getElementById("createUpdateTitle").textContent = "Update Listing";
         document.getElementById("createUpdateButton").value = "update listing";
 
         for (var key in DISPLAYED_LISTING) {

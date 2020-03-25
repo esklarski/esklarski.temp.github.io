@@ -117,7 +117,8 @@ function clearNewListingForm() {
 function agentSearch() {
     clearAgentSearch();
 
-    var searchKey = document.getElementById("agentSearchInput").value;
+    var search    = document.getElementById("agentSearchInput");
+    var searchKey = search.value;
 
     if (searchKey != "") {
         var listings = MockDatabase.agentNameSearch(searchKey);
@@ -126,18 +127,20 @@ function agentSearch() {
             displaySelect(listings);
         } else {
             alert("Agent name not found.");
+            search.focus();
         }
     } else {
         alert("Please enter a name to search.");
+        search.focus();
     }
-    
 }
 
 // search database by listing number
 function numberSearch() {
     clearSearchResults();
 
-    var searchKey = document.getElementById("listingSearchInput").value;
+    var search    = document.getElementById("listingSearchInput");
+    var searchKey = search.value;
 
     if (parseInt(searchKey)) {
         var listing = MockDatabase.listingNumSearch(searchKey);
@@ -146,9 +149,11 @@ function numberSearch() {
             displaySearchResults(listing);
         } else {
             alert("Listing number not found.");
+            search.focus();
         }
     } else {
-        alert("Please enter a number to search.")
+        alert("Please enter a number to search.");
+        search.focus();
     }
 }
 

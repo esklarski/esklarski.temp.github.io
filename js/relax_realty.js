@@ -113,6 +113,12 @@ function clearNewListingForm() {
 
 // ********************************** Listing Search Functions **********************************
 
+// insert username as default search key
+function lookupListing() {
+    document.getElementById("agentSearchInput").value = LOGGED_IN_AGENT;
+    chooseActivity('lookup_listing')
+}
+
 // search database by agent name
 function agentSearch() {
     clearAgentSearch();
@@ -142,7 +148,7 @@ function numberSearch() {
     var search    = document.getElementById("listingSearchInput");
     var searchKey = search.value;
 
-    if (parseInt(searchKey)) {
+    if (parseInt(searchKey) != NaN) {
         var listing = MockDatabase.listingNumSearch(searchKey);
 
         if (listing != null) {

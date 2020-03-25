@@ -63,7 +63,7 @@ var listingArray = [
                 "blah", "blah", "blah", "blah",
                 500000, "blah", "blah"),
 
-    new Listing(9, "agent3", "blah", "blah", "blah", "blah",
+    new Listing(9, "demo_agent", "blah", "blah", "blah", "blah",
                 "blah", "blah", 300000,
                 "apartment", "blah", "blah", "blah", "blah", "blah", "blah",
                 0, 0, "blah", "blah",

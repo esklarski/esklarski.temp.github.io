@@ -118,13 +118,19 @@ function agentSearch() {
     clearAgentSearch();
 
     var searchKey = document.getElementById("agentSearchInput").value;
-    var listings = MockDatabase.agentNameSearch(searchKey);
 
-    if (listings != null) {
-        displaySelect(listings);
+    if (searchKey != "") {
+        var listings = MockDatabase.agentNameSearch(searchKey);
+
+        if (listings != null) {
+            displaySelect(listings);
+        } else {
+            alert("Agent name not found.");
+        }
     } else {
-        alert("Agent name not found.");
+        alert("Please enter a name to search.");
     }
+    
 }
 
 // search database by listing number
@@ -132,12 +138,17 @@ function numberSearch() {
     clearSearchResults();
 
     var searchKey = document.getElementById("listingSearchInput").value;
-    var listing = MockDatabase.listingNumSearch(searchKey);
 
-    if (listing != null) {
-        displaySearchResults(listing);
+    if (parseInt(searchKey)) {
+        var listing = MockDatabase.listingNumSearch(searchKey);
+
+        if (listing != null) {
+            displaySearchResults(listing);
+        } else {
+            alert("Listing number not found.");
+        }
     } else {
-        alert("Listing number not found.");
+        alert("Please enter a number to search.")
     }
 }
 

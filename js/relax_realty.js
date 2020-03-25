@@ -126,12 +126,12 @@ function agentSearch() {
         if (listings != null) {
             displaySelect(listings);
         } else {
-            search.focus();
             alert("Agent name not found.");
+            search.focus();
         }
     } else {
-        search.focus();
         alert("Please enter a name to search.");
+        search.focus();
     }
 }
 

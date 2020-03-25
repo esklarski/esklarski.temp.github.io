@@ -146,9 +146,9 @@ function numberSearch() {
     clearSearchResults();
 
     var search    = document.getElementById("listingSearchInput");
-    var searchKey = search.value;
+    var searchKey = parseInt(search.value);
 
-    if (parseInt(searchKey) != NaN) {
+    if (searchKey != NaN) {
         var listing = MockDatabase.listingNumSearch(searchKey);
 
         if (listing != null) {

@@ -38,7 +38,7 @@ function setUsername() {
 
 // convert number to currency for display
 function toCurrency(number) {
-    return number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+    return number.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' });
 }
 
 

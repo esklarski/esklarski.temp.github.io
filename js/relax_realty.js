@@ -21,8 +21,7 @@ function chooseActivity(activity) {
             if (ACTIVITIES[i].style.display != "none") {
                 ACTIVITIES[i].style.display = "none";
             }
-        }
-        else {
+        } else {
             ACTIVITIES[i].style.display = "block";
         }
     }

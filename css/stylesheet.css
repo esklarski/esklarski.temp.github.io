@@ -101,6 +101,11 @@ input[type="button"] {
         flex-direction: column;
     }
 
+    .warning-placeholder::placeholder {
+        color: red;
+        opacity: 1;
+    }
+
     /* print document page */
     #print_records {
         background-color: deeppink;

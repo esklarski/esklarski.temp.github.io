@@ -135,7 +135,7 @@ function agentSearch() {
             search.focus();
         }
     } else {
-        alert("Please enter a name to search.");
+        document.getElementById("agentSearchInput").classList.add("warning-placeholder");
         search.focus();
     }
 }
@@ -147,7 +147,7 @@ function numberSearch() {
     var search    = document.getElementById("listingSearchInput");
     var searchKey = parseInt(search.value);
 
-    if (searchKey != NaN) {
+    if (!Number.isNaN(searchKey)) {
         var listing = MockDatabase.listingNumSearch(searchKey);
 
         if (listing != null) {
@@ -157,7 +157,7 @@ function numberSearch() {
             search.focus();
         }
     } else {
-        alert("Please enter a number to search.");
+        document.getElementById("listingSearchInput").classList.add("warning-placeholder");\
         search.focus();
     }
 }
@@ -222,10 +222,13 @@ function clearAgentSearch() {
     if (toRemove != null) {
         document.getElementById("agentListingList").removeChild(toRemove);
     }
+
+    document.getElementById("agentSearchInput").classList.remove("warning-placeholder");
 }
 
 // clear search results
 function clearSearchResults() {
+    document.getElementById("listingSearchInput").classList.remove("warning-placeholder");
     document.getElementById("searchResults").value = "";
     DISPLAYED_LISTING = null;
 }

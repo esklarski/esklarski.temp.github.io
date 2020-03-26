@@ -114,6 +114,7 @@ function clearNewListingForm() {
 
 // insert username as default search key
 function lookupListing() {
+    clearSearchButton();
     document.getElementById("agentSearchInput").value = LOGGED_IN_AGENT;
     chooseActivity('lookup_listing')
 }
@@ -135,7 +136,7 @@ function agentSearch() {
             search.focus();
         }
     } else {
-        document.getElementById("agentSearchInput").classList.add("warning-placeholder");
+        search.classList.add("warning-placeholder");
         search.focus();
     }
 }
@@ -157,7 +158,8 @@ function numberSearch() {
             search.focus();
         }
     } else {
-        document.getElementById("listingSearchInput").classList.add("warning-placeholder");
+        search.classList.add("warning-placeholder");
+        search.value = "";
         search.focus();
     }
 }
@@ -251,7 +253,8 @@ function updateListingButton() {
             alert("You may only update your own records. Please speak to management, to report any inconsistencies or errors found.");
         }
     } else {
-        alert("Please find a record to update via the search functions.");
+        document.getElementById("listingSearchInput").classList.add("warning-placeholder");
+        document.getElementById("listingSearchInput").focus();
     }
 }
 
@@ -264,7 +267,8 @@ function viewRecordsButton() {
             alert("no selling price available for listing");
         }
     } else {
-        alert("Please find a record to view via the search functions.");
+        document.getElementById("listingSearchInput").classList.add("warning-placeholder");
+        document.getElementById("listingSearchInput").focus();
     }
 }
 

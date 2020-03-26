@@ -157,7 +157,7 @@ function numberSearch() {
             search.focus();
         }
     } else {
-        document.getElementById("listingSearchInput").classList.add("warning-placeholder");\
+        document.getElementById("listingSearchInput").classList.add("warning-placeholder");
         search.focus();
     }
 }

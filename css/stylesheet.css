@@ -109,7 +109,7 @@ input[type="button"] {
     /* print document page */
     #print_records {
         background-color: deeppink;
-        height: 90vh;
+        min-height: 90vh;
     }
 
     [class*="Output"] {

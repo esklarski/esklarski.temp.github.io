@@ -25,6 +25,8 @@ function chooseActivity(activity) {
             ACTIVITIES[i].style.display = "block";
         }
     }
+
+    window.scrollTo(0,0);
 }
 
 // checks for saved username, passes back a value
@@ -57,8 +59,6 @@ function editListing(newListing) {
         for (var key in DISPLAYED_LISTING) {
             document.getElementById(key).value = DISPLAYED_LISTING[key];
         }
-
-        window.scrollTo(0,0);
     }
 
     chooseActivity('new_listing');

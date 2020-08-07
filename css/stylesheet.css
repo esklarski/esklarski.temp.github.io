@@ -1,4 +1,9 @@
 /* general style */
+:root {
+    --bgLogin: #439bff;
+    --bgMain: #dd1c77;
+}
+
 body {
     background-color: black;
 }
@@ -10,7 +15,7 @@ h1, h3, h5 {
 
 hr {
     width: 300px;
-    color: darkturquoise;
+    color: var(--bgLogin);
 }
 
 p {
@@ -32,7 +37,7 @@ input[type="button"] {
 
 /* User Authorization index.html */
 #userAuth {
-    background-color: aqua;
+    background-color: var(--bgLogin);
     padding: 30px;
     text-align: center;
     min-width: 300px;
@@ -79,12 +84,12 @@ input[type="button"] {
 
     /* what to do page */
     #what_to_do {
-        background-color: deeppink;
+        background-color: var(--bgMain);
     }
 
     /* new listing page */
     #new_listing {
-        background-color: deeppink;
+        background-color: var(--bgMain);
     }
 
     .searchButton {
@@ -93,7 +98,7 @@ input[type="button"] {
 
     /* listing search page */
     #lookup_listing {
-        background-color: deeppink;
+        background-color: var(--bgMain);
     }
 
     #agentListingList {
@@ -103,13 +108,13 @@ input[type="button"] {
     }
 
     .warning-placeholder::placeholder {
-        color: red;
+        color: #ca0000;
         opacity: 1;
     }
 
     /* print document page */
     #print_records {
-        background-color: deeppink;
+        background-color: var(--bgMain);
     }
 
     [class*="Output"] {

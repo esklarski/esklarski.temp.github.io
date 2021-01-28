@@ -1,2 +1,2 @@
-# esklarski.temp.github.io
-CSIS 2200 Tech Enthusiast's website demo
+# esklarski.relaxrealty.demo.github.io
+https://esklarski.github.io/relaxrealty.demo/
